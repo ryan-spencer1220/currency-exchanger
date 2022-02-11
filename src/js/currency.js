@@ -1,16 +1,18 @@
 export default class ExchangeRate {
   static getCurrency() {
-    return fetch(
-      `https://v6.exchangerate-api.com/v6/1de6bfcc2daf8b313f6c2363/latest/USD/`
-    )
-      .then(function (response) {
-        if (!response.ok) {
-          throw Error(response);
+    return new Promise(function (resolve, reject) {
+      let request = new XMLHttpRequest();
+      const url =
+        "https://v6.exchangerate-api.com/v6/e3df05c6193f60cb2d42e0bb/latest/USD";
+      request.onload = function () {
+        if (this.status === 200) {
+          resolve(request.response);
+        } else {
+          reject(request.response);
         }
-        return response.json();
-      })
-      .catch(function (error) {
-        return Error(error);
-      });
+      };
+      request.open("GET", url, true);
+      request.send();
+    });
   }
 }
