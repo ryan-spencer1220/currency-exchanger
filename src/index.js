@@ -5,8 +5,14 @@ import "./css/styles.css";
 import ExchangeRate from "./js/currency";
 
 function displayExchangeRates(exchangeRates) {
+  let amount = $("#amount").val();
   let stringObject = JSON.stringify(exchangeRates);
   $(".display").html(`${stringObject}`);
+  if (amount === "") {
+    return $(".multiply").html("Please enter an amount!");
+  } else {
+    return $(".multiply").html(amount * exchangeRates);
+  }
 }
 
 function displayErrors(error) {
@@ -22,12 +28,26 @@ $(document).ready(function () {
         if (response instanceof Error) {
           throw Error(`ExchangeRate-API error: ${response.result}`);
         }
-        const conversionRate = response.conversion_rates;
-        console.log(conversionRate);
-        return displayExchangeRates(conversionRate);
+        if (currency === "USD") {
+          return displayExchangeRates(response.conversion_rates.USD);
+        } else if (currency === "EUR") {
+          return displayExchangeRates(response.conversion_rates.EUR);
+        } else if (currency === "JPY") {
+          return displayExchangeRates(response.conversion_rates.JPY);
+        } else if (currency === "CAD") {
+          return displayExchangeRates(response.conversion_rates.CAD);
+        } else if (currency === "MXN") {
+          return displayExchangeRates(response.conversion_rates.MXN);
+        } else if (currency === "CNY") {
+          return displayExchangeRates(response.conversion_rates.CNY);
+        } else if (currency === "Epicodus Bucks") {
+          return displayErrors(response.error.message);
+        } else {
+          displayErrors(response.error);
+        }
       })
       .catch(function (error) {
-        displayErrors(error.message);
+        displayErrors(error);
       });
   });
 });
