@@ -9,13 +9,20 @@
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
-        <h2>Currency Exchanger</h2>
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <h1 class="display-5 fw-bold">Currency Exchanger</h1>
       </div>
       <form>
-        <label for="currency">Enter Currency: </label>
-        <input id="currency" type="text" />
-        <label for="amount">Enter Amount: </label>
+        <h6>Convert USD To Selected Curency!</h6>
+        <select class="form-control" id="currency-type">
+          <option>USD</option>
+          <option>EUR</option>
+          <option>JPY</option>
+          <option>CAD</option>
+          <option>AUD</option>
+        </select>
+        <br />
+        <label for="amount">Amount: </label>
         <input id="amount" type="number" />
         <button
           type="button"
