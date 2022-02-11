@@ -1,33 +1,16 @@
-export default class WeatherService {
-  static getWeather(city) {
+export default class ExchangeRate {
+  static getCurrency() {
     return fetch(
-      `https://v6.exchangerate-api.com/v6/e3df05c6193f60cb2d42e0bb/latest/${currency}/`
+      `https://v6.exchangerate-api.com/v6/1de6bfcc2daf8b313f6c2363/latest/USD/`
     )
       .then(function (response) {
         if (!response.ok) {
-          throw Error(response.statusText);
+          throw Error(response);
         }
         return response.json();
       })
       .catch(function (error) {
-        return error;
+        return Error(error);
       });
   }
 }
-
-// export default class ExchangeRate {
-//   static getCurrency(currency) {
-//     return fetch(
-//       `https://v6.exchangerate-api.com/v6/e3df05c6193f60cb2d42e0bb/latest/${currency}/`
-//     )
-//       .then(function (response) {
-//         if (!response.ok) {
-//           throw Error(response);
-//         }
-//         return response.json();
-//       })
-//       .catch(function (error) {
-//         return Error(error);
-//       });
-//   }
-// }
