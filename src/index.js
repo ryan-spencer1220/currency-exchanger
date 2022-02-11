@@ -16,17 +16,17 @@ function displayExchangeRates(exchangeRates) {
 }
 
 function displayErrors(error) {
-  $(".error").text(`${error}`);
+  let errorObject = JSON.stringify(error);
+  $(".error").text(`${errorObject}`);
 }
 
 $(document).ready(function () {
   $("#conversion-calculator").click(function () {
     let currency = $("#currency-type").val();
-    console.log(currency);
     ExchangeRate.getCurrency(currency)
       .then(function (response) {
         if (response instanceof Error) {
-          throw Error(`ExchangeRate-API error: ${response.result}`);
+          throw Error(`ExchangeRate-API error ${response}`);
         }
         if (currency === "USD") {
           return displayExchangeRates(response.conversion_rates.USD);
@@ -41,13 +41,13 @@ $(document).ready(function () {
         } else if (currency === "CNY") {
           return displayExchangeRates(response.conversion_rates.CNY);
         } else if (currency === "Epicodus Bucks") {
-          return displayErrors(response.error.message);
+          return displayErrors(response);
         } else {
-          displayErrors(response.error);
+          displayErrors(response);
         }
       })
-      .catch(function (error) {
-        displayErrors(error);
+      .catch(function (response) {
+        displayErrors(response);
       });
   });
 });
