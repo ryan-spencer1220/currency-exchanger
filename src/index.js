@@ -32,14 +32,12 @@ $(document).ready(function () {
           $(".display").text(`¥${body.conversion_rates.CNY}`);
           $(".multiply").text(`¥${amount * body.conversion_rates.CNY}`);
         } else {
-          $(".display").text(
-            `There was an error processing your request: You must enter an actual form of currency!`
-          );
+          $(".display").text(`You must enter an actual form of currency!`);
           $(".multiply").text(`N/A`);
         }
       },
       function (error) {
-        $(".showErrors").text(
+        $(".display").prepend(
           `There was an error processing your request: ${error}`
         );
       }
