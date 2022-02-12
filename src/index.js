@@ -73,7 +73,7 @@ $(document).ready(function () {
           $(".multiply-toUSD").text(`$${amount * body.conversion_rates.USD}`);
         } else {
           $(".display-toUSD").text(
-            "There was an error processing your request! 404 Not Found: Incorrect Currency"
+            `There was an error processing your request!`
           );
           $(".multiply-toUSD").text("N/A");
         }
