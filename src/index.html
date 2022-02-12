@@ -38,6 +38,33 @@
       <h6>Conversion Rate: <span class="display"></span></h6>
       <br />
       <h6>Total: <span class="multiply"></span></h6>
+      <br />
+      <form>
+        <h6>Convert Selected Curency To USD!</h6>
+        <select class="form-control" id="currency-type-toUSD">
+          <option>USD</option>
+          <option>EUR</option>
+          <option>JPY</option>
+          <option>CAD</option>
+          <option>MXN</option>
+          <option>CNY</option>
+          <option>Epicodus Bucks</option>
+        </select>
+        <br />
+        <label for="amount-toUSD">Amount: </label>
+        <input id="amount-toUSD" type="number" value="1" min="1" />
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="conversion-calculator-toUSD"
+        >
+          Submit
+        </button>
+      </form>
+      <br />
+      <h6>Conversion Rate: <span class="display-toUSD"></span></h6>
+      <br />
+      <h6>Total: <span class="multiply-toUSD"></span></h6>
     </div>
   </body>
 </html>
