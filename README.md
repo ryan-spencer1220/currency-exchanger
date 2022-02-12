@@ -1,12 +1,8 @@
-# (Application Name)
+# Currency Exchanger
 
-#### (Brief Description of Application)
+#### Web application designed to convert currency
 
-#### By (Your Name Here)
-
-### _Link to GitHub Repository_
-
-- LINK
+#### By Ryan Spencer
 
 ## Technologies Used
 
@@ -22,6 +18,8 @@
 - _jQuery_
 
 ## Description
+
+_Currency exchange web application designed to convert US dollars into various common forms of currency. Users can select a form of currency from the dropdown menu and enter a value of US dollars that they would like to convert. Application returns the current exchange rate pulled from the ExchangeRate API and a total amount converted to the selected currency._
 
 ## Setup/Installation Requirements
 
