@@ -13,15 +13,24 @@
         <h1 class="display-5 fw-bold">Currency Exchanger</h1>
       </div>
       <form>
-        <h6>Convert USD To Selected Curency!</h6>
-        <select class="form-control" id="currency-type">
-          <option>USD</option>
+        <h6>Convert Any Value Between Popular Currencies!</h6>
+        <select class="form-control" id="currency-one">
+          <option selected>USD</option>
           <option>EUR</option>
           <option>JPY</option>
           <option>CAD</option>
           <option>MXN</option>
           <option>CNY</option>
           <option>Epicodus Bucks</option>
+        </select>
+        <br />
+        <select class="form-control" id="currency-two">
+          <option>USD</option>
+          <option selected>EUR</option>
+          <option>JPY</option>
+          <option>CAD</option>
+          <option>MXN</option>
+          <option>CNY</option>
         </select>
         <br />
         <label for="amount">Amount: </label>
@@ -39,31 +48,6 @@
       <br />
       <h6>Total: <span class="multiply"></span></h6>
       <br />
-      <form>
-        <h6>Convert Selected Curency To USD!</h6>
-        <select class="form-control" id="currency-type-toUSD">
-          <option>USD</option>
-          <option>EUR</option>
-          <option>JPY</option>
-          <option>CAD</option>
-          <option>MXN</option>
-          <option>CNY</option>
-        </select>
-        <br />
-        <label for="amount-toUSD">Amount: </label>
-        <input id="amount-toUSD" type="number" value="1" min="1" />
-        <button
-          type="button"
-          class="btn btn-primary"
-          id="conversion-calculator-toUSD"
-        >
-          Submit
-        </button>
-      </form>
-      <br />
-      <h6>Conversion Rate: <span class="display-toUSD"></span></h6>
-      <br />
-      <h6>Total: <span class="multiply-toUSD"></span></h6>
-    </div>
+      <h6><span class="show-errors"></span></h6>
   </body>
 </html>
